@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Movie API</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
+              integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container">
+            <h1>Movie API</h1>
+            <table class="table" id="allmovies"></table>
+            <input type="button" id="all" value="Fetch all movies">
+            <input type="text" id="number" name="number">
+            <input type="button" id="one" value="Fetch movie by ID">
+            <p id="message"></p>
+            <table class="table" id="onemovie"></table>
+        </div>
+
+        <script>
+            let url = "http://localhost:8080/jpareststarter/api/movie/";
+            //let url = "https://www.cphper.dk"
+            var all = document.getElementById("all");
+            var one = document.getElementById("one");
+
+            all.onclick = function () {
+                var newurl = url + "all";
+                fetch(newurl)
+                        .then(res => res.json()) //in flow1, just do it
+                        .then(data => {
+                            // Inside this callback, and only here, the response data is available
+                            var allMovies = "<thead><tr><th>id</th><th>Title</th><th>Year</th><th>Actors</th></thead><tbody>";
+                            for (var i = 0; i < data.length; i++) {
+                                allMovies += "<tr><td>" + data[i].id + "</td><td>" + data[i].title + "</td><td>" + data[i].year + "</td><td>" + data[i].actors + "</td></tr>";
+                            }
+                            allMovies += "</tbody>";
+
+                            document.getElementById("allmovies").innerHTML = allMovies;
+
+                            //console.log("data", data);
+
+                        });
+            };
+
+            one.onclick = function () {
+                var number = document.getElementById("number").value;
+
+                if (isNaN(number)) {
+                    document.getElementById("message").innerHTML = number + " is not a number";
+
+                } else if (number === null || number === "") {
+                    document.getElementById("message").innerHTML = "inputfield is empty";
+
+                } else {
+
+                    let newurl = url + number;
+
+                    fetch(newurl)
+                            .then(res => res.json()) //in flow1, just do it
+                            .then(data => {
+                                // Inside this callback, and only here, the response data is available
+                                var onemovie = "<tr><th>Id:</th><td>" + data.id + "</td></tr><tr><th>Titel:</th><td>" +
+                                        data.title + "</td></tr><tr><th>År:</th><td>" + data.year + "</td></tr><tr><th>Medvirkende:</th><td>" +
+                                        data.actors + "</td></tr>";
+
+                                //console.log("data", data);
+                                document.getElementById("onemovie").innerHTML = onemovie;
+                            });
+                            document.getElementById("message").innerHTML = "";
+                }
+            };
+
+        </script>
+    </body>
+</html>
