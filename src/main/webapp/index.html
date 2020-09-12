@@ -6,10 +6,10 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
               integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
         <style>
-            h1 {
+/*            h1 {
                 font-size: 40px;
                 padding-bottom: 20px;
-            }
+            }*/
 
             p {
                 font-size: 14px;
@@ -30,7 +30,8 @@
             .box {
                 float: left;
                 text-align: left;
-                padding: 0px 20px;
+                /*padding: 0px 20px;*/
+                padding: 20px;
             }
         </style>
     </head>
@@ -38,35 +39,62 @@
         <section>
             <div id="main">
 
-                <h1>Movie API</h1>
+                <h1 class="display-1">Movie API</h1>
+                
+                <div class="box">
+                    <h4>Movie API end points</h4>
+                    <ul>
+                        <li>Se hvor mange records der er&nbsp;
+                            <a href="https://cphper.dk/movieapi/api/movie/count">count</a></li>
+                        <li>Se records for all film&nbsp;
+                            <a href="https://cphper.dk/movieapi/api/movie/all">all</a></li>
+                        <li>Se records for film med id 1.&nbsp;
+                            <a href="https://cphper.dk/movieapi/api/movie/1">id</a></li>
+                    </ul>
+                    <p class="lead">Sådan bruges API til Movie</p>
+                    <ul class="list-unstyled">
+                        <li>Det nedenstående skal tastes efter <mark>cphper.dk/movieapi/</mark></li>
+                        <li>Tast <mark>api/movie/count</mark> for at se hvor mange records der er.</li>
+                        <li>Tast <mark>api/movie/all</mark> for at se alle records.</li>
+                        <li>Tast <mark>api/movie/</mark> + et tal(id) for at se en record.</li>
+                        <li>Tast <mark>api/movie/title/</mark> + den titel du søger.</li>
+                    </ul>
+                </div>
                 <div class="box">
                     <h4>Dom Manipulation and Events</h4>
                     <ul>
                         <li>Simple DOM manipulation and Event handling&nbsp;
-                        <a href="opg1.html">Opgave 1</a></li>
+                            <a href="opg1.html">Opgave 1</a></li>
                         <li>Event Bubbling and event arguments&nbsp;
-                        <a href="opg2.html">Opgave 2</a></li>
+                            <a href="opg2.html">Opgave 2</a></li>
                         <li>Using map to create list’s (ul’s, tables etc.)&nbsp;
-                        <a href="opg3.html">Opgave 3</a></li>
+                            <a href="opg3.html">Opgave 3</a></li>
                         <li>Using map and filter to create dynamic table-rows&nbsp;
-                        <a href="opg4.html">Opgave 4</a></li>
+                            <a href="opg4.html">Opgave 4</a></li>
                         <li>Implement a simple calculator&nbsp;
-                        <a href="opg5.html">Opgave 5</a></li>
+                            <a href="opg5.html">Opgave 5</a></li>
                         <li>Dynamic UI manipulation using data obtained via fetch&nbsp;
-                        <a href="opg6.html">Opgave 6</a></li>
+                            <a href="opg6.html">Opgave 6</a></li>
                     </ul>
                 </div>
+                <dic class="box">
+                    <h4>Links to Github repository</h4>
+                    <ul>
+                        <li>Her er link til uge 37 på GitHup&nbsp;
+                            <a href="https://github.com/cph-pk/3semWeek37">Uge 37</a></li>
+                        <li>Link til Movie API projekt&nbsp;
+                            <a href="">Movie API</a></li>
+                    </ul>
+                </dic>
                 <div class="box">
                     <h4>Andre links</h4>
                     <ul>
                         <li>Link til Movie API part 2&nbsp;
-                        <a href="movieapi.html">Movie API</a></li>
-                        <li>Her er link til uge 37 på GitHup&nbsp;
-                        <a href="https://github.com/cph-pk/3semWeek37">Git</a></li>
+                            <a href="movieapi.html">Movie API</a></li>
+
                         <li>Link til Travis status&nbsp;
-                        <a href="https://travis-ci.com/github/cph-pk/Week3MovieAPI" target="_blank">Travis</a></li>
-                    </ul>
-                
+                            <a href="https://travis-ci.com/github/cph-pk/Week3MovieAPI" target="_blank">Travis</a></li>
+                    </ul>          
                 </div>
             </div>
         </section>
